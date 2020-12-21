@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Reminder with WorkManager</string>
+    <string name="text_set_reminder">Set Reminder</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_list">List</string>
+</resources>
