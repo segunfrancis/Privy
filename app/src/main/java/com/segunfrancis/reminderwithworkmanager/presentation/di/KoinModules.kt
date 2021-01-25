@@ -4,6 +4,7 @@ import androidx.room.Room
 import com.segunfrancis.reminderwithworkmanager.data.source.LocalSource
 import com.segunfrancis.reminderwithworkmanager.framework.db.SecretDatabase
 import com.segunfrancis.reminderwithworkmanager.framework.source.LocalSourceImpl
+import com.segunfrancis.reminderwithworkmanager.presentation.ui.MainViewModel
 import com.segunfrancis.reminderwithworkmanager.presentation.ui.add.AddSecretViewModel
 import com.segunfrancis.reminderwithworkmanager.presentation.ui.secret.SecretListViewModel
 import com.segunfrancis.reminderwithworkmanager.presentation.util.AppConstants.DATABASE_NAME
@@ -29,6 +30,7 @@ val useCaseModule = module {
 }
 
 val viewModelModule = module {
+    viewModel { MainViewModel() }
     viewModel { AddSecretViewModel(get()) }
     viewModel { SecretListViewModel(get(), get(), get()) }
 }

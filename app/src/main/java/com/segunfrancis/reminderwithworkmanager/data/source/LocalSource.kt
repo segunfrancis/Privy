@@ -7,5 +7,5 @@ interface LocalSource {
     fun getAllSecrets(): Flow<List<SecretItem>>
     fun addSecret(secretItem: SecretItem): Flow<Unit>
     fun removeSecret(id: Long): Flow<Unit>
-    fun removeAllSecrets(secretItem: SecretItem): Flow<Unit>
+    fun removeAllSecrets(): Flow<Unit>
 }

@@ -16,11 +16,15 @@ class GetAllSecretsUseCase(
     private val dispatcher: CoroutineDispatcher
 ) {
 
-    operator fun invoke(secretResult: (SecretResult<List<SecretItem>>) -> Unit) {
+   /* operator fun invoke(secretResult: (SecretResult<List<SecretItem>>) -> Unit) {
         CoroutineScope(dispatcher).launch {
             source.getAllSecrets().flowOn(dispatcher)
                 .catch { secretResult(SecretResult.Error(it)) }
                 .collect { secretResult(SecretResult.Success(it)) }
         }
+    }*/
+
+    operator fun invoke(): Flow<List<SecretItem>> {
+        return source.getAllSecrets().flowOn(dispatcher)
     }
 }

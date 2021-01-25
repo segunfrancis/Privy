@@ -19,7 +19,7 @@ class LocalSourceImpl(private val database: SecretDatabase) : LocalSource {
         return flow { emit(database.dao().removeSecret(id)) }
     }
 
-    override fun removeAllSecrets(secretItem: SecretItem): Flow<Unit> {
-        return flow { emit(database.dao().removeAllSecrets(secretItem)) }
+    override fun removeAllSecrets(): Flow<Unit> {
+        return flow { emit(database.dao().removeAllSecrets()) }
     }
 }

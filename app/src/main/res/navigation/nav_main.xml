@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/listFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -14,7 +14,11 @@
         android:id="@+id/listFragment"
         android:name="com.segunfrancis.reminderwithworkmanager.presentation.ui.secret.ListFragment"
         android:label="List of Secrets"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_addSecretFragment"
+            app:destination="@id/addSecretFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addSecretFragment"
         android:name="com.segunfrancis.reminderwithworkmanager.presentation.ui.add.AddSecretFragment"

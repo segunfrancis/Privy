@@ -8,6 +8,12 @@
         <variable
             name="viewModel"
             type="com.segunfrancis.reminderwithworkmanager.presentation.ui.secret.SecretListViewModel" />
+        <variable
+            name="navViewModel"
+            type="com.segunfrancis.reminderwithworkmanager.presentation.ui.MainViewModel" />
+        <variable
+            name="navDirection"
+            type="androidx.navigation.NavDirections" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

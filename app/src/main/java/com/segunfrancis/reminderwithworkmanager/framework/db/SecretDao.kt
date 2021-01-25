@@ -15,6 +15,6 @@ interface SecretDao {
     @Query("DELETE FROM secret_table WHERE :id is id")
     suspend fun removeSecret(id: Long)
 
-    @Delete
-    suspend fun removeAllSecrets(secretItem: SecretItem)
+    @Query("DELETE FROM secret_table")
+    suspend fun removeAllSecrets()
 }

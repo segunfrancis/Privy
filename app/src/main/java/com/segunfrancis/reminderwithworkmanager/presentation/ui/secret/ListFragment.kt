@@ -1,36 +1,61 @@
 package com.segunfrancis.reminderwithworkmanager.presentation.ui.secret
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
 import com.segunfrancis.reminderwithworkmanager.R
 import com.segunfrancis.reminderwithworkmanager.databinding.FragmentListBinding
+import com.segunfrancis.reminderwithworkmanager.presentation.ui.MainViewModel
+import com.segunfrancis.reminderwithworkmanager.presentation.ui.base.BaseFragment
+import com.segunfrancis.reminderwithworkmanager.presentation.util.Navigation
+import com.segunfrancis.reminderwithworkmanager.presentation.util.showMessage
+import kotlinx.coroutines.flow.collect
+import org.koin.android.viewmodel.ext.android.viewModel
 
-class ListFragment : Fragment() {
+class ListFragment : BaseFragment<FragmentListBinding, SecretListViewModel>() {
 
-    private var _binding: FragmentListBinding? = null
-    private val binding get() = _binding!!
+    override val layoutId: Int get() = R.layout.fragment_list
+    override val viewModel: SecretListViewModel by viewModel()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentListBinding.inflate(layoutInflater)
-        binding.buttonNavigateToAddFragment.setOnClickListener {
-            navigateToAddFrag()
+    private val navViewModel: MainViewModel by viewModel()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val secretAdapter = SecretAdapter()
+        binding.apply {
+            buttonNavigateToAddFragment.setOnClickListener { launchFragment(ListFragmentDirections.actionListFragmentToAddSecretFragment()) }
+            secretRecyclerView.layoutManager = StaggeredGridLayoutManager(2, VERTICAL)
+            secretRecyclerView.adapter = secretAdapter
         }
-        return binding.root
-    }
+        binding.viewModel = viewModel
+        binding.navViewModel = navViewModel
+        //binding.navDirection = ListFragmentDirections.actionListFragmentToAddSecretFragment()
+        lifecycleScope.launchWhenStarted {
+            viewModel.navigate.collect { navigation ->
+                when (navigation) {
+                    Navigation.SECRET_LIST -> {
+                        launchFragment(R.id.listFragment)
+                    }
+                    Navigation.DEFAULT -> {
+                    }
+                    Navigation.ADD_SECRET -> {
+                        launchFragment(R.id.addSecretFragment)
+                    }
+                    Navigation.ERROR -> {
+                        requireView().showMessage("Something went wrong")
+                    }
+                }
+            }
+        }
 
-    fun navigateToAddFrag() {
-        findNavController().navigate(R.id.addSecretFragment)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        lifecycleScope.launchWhenStarted {
+            viewModel.getAllSecrets().collect {
+                secretAdapter.submitList(it)
+            }
+        }
     }
 }

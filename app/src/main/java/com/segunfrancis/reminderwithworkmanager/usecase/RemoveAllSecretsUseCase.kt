@@ -15,9 +15,9 @@ class RemoveAllSecretsUseCase(
     private val dispatcher: CoroutineDispatcher
 ) {
 
-    operator fun invoke(secretItem: SecretItem, result: (SecretResult<SecretItem>) -> Unit) {
+    operator fun invoke(result: (SecretResult<SecretItem>) -> Unit) {
         CoroutineScope(dispatcher).launch {
-            localSource.removeAllSecrets(secretItem).flowOn(dispatcher)
+            localSource.removeAllSecrets().flowOn(dispatcher)
                 .catch { result(SecretResult.Error(it)) }
                 .collect { result(SecretResult.Success()) }
         }
