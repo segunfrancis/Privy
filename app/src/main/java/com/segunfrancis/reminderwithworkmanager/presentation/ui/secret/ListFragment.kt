@@ -3,7 +3,6 @@ package com.segunfrancis.reminderwithworkmanager.presentation.ui.secret
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
 import com.segunfrancis.reminderwithworkmanager.R
@@ -27,7 +26,9 @@ class ListFragment : BaseFragment<FragmentListBinding, SecretListViewModel>() {
 
         val secretAdapter = SecretAdapter()
         binding.apply {
-            buttonNavigateToAddFragment.setOnClickListener { launchFragment(ListFragmentDirections.actionListFragmentToAddSecretFragment()) }
+            buttonNavigateToAddFragment.setOnClickListener {
+                launchFragment(ListFragmentDirections.actionListFragmentToAddSecretFragment())
+            }
             secretRecyclerView.layoutManager = StaggeredGridLayoutManager(2, VERTICAL)
             secretRecyclerView.adapter = secretAdapter
         }
