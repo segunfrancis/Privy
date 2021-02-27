@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.segunfrancis.reminderwithworkmanager.presentation.ui.main.ReminderViewModel" />
+            type="com.segunfrancis.privy.presentation.ui.main.ReminderViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

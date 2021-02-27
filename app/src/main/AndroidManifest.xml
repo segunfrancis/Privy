@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.segunfrancis.reminderwithworkmanager">
+    package="com.segunfrancis.privy">
 
     <application
-        android:name=".presentation.SecretApp"
+        android:name="com.segunfrancis.privy.presentation.SecretApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ReminderWithWorkManager">
-        <activity android:name=".presentation.ui.MainActivity">
+        android:theme="@style/Theme.Privy">
+        <activity android:name="com.segunfrancis.privy.presentation.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

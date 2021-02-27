@@ -26,7 +26,7 @@ object Apps {
     const val versionCode = 1
     const val versionName = "1.0.0"
     const val buildTools = "30.0.3"
-    const val applicationId = "com.segunfrancis.reminderwithworkmanager"
+    const val applicationId = "com.segunfrancis.privy"
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 }
 
@@ -40,14 +40,14 @@ object Dependencies {
     const val workManager = "androidx.work:work-runtime-ktx:${Versions.workManager}"
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
-    const val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
     const val koin = "org.koin:koin-android:${Versions.koin}"
-    const val koinViewmodel = "org.koin:koin-android-viewmodel:${Versions.koin}"
+    const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koin}"
 }
 
 object TestDependencies {

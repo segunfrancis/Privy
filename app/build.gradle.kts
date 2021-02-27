@@ -47,13 +47,13 @@ dependencies {
     implementation(Dependencies.navigationFragment)
     implementation(Dependencies.navigationUi)
     implementation(Dependencies.legacy)
-    implementation(Dependencies.viewmodel)
+    implementation(Dependencies.viewModel)
     implementation(Dependencies.livedata)
     implementation(Dependencies.coroutines)
     
     // Koin
     implementation(Dependencies.koin)
-    implementation(Dependencies.koinViewmodel)
+    implementation(Dependencies.koinViewModel)
 
     // Room database
     kapt(Dependencies.roomCompiler)

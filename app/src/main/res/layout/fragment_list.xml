@@ -7,10 +7,10 @@
     <data>
         <variable
             name="viewModel"
-            type="com.segunfrancis.reminderwithworkmanager.presentation.ui.secret.SecretListViewModel" />
+            type="com.segunfrancis.privy.presentation.ui.secret.SecretListViewModel" />
         <variable
             name="navViewModel"
-            type="com.segunfrancis.reminderwithworkmanager.presentation.ui.MainViewModel" />
+            type="com.segunfrancis.privy.presentation.ui.MainViewModel" />
         <variable
             name="navDirection"
             type="androidx.navigation.NavDirections" />

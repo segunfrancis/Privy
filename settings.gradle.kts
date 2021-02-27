@@ -1,2 +1,2 @@
 include(":app")
-rootProject.name = "Reminder with WorkManager"
+rootProject.name = "Privy"
